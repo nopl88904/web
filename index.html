@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Lalezar&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>well</title>
+    <style>
+        /* تصميم عام */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #f5f5f5;
+            background-color: #121212;
+            text-align: center;
+            overflow: auto; /* تغيير من hidden إلى auto */
+            scroll-behavior: smooth; /* إضافة تمرير سلس */
+        }
+
+        /* تطبيق الخط Lalezar */
+        .lalezar-regular {
+            font-family: "Lalezar", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* تصميم النجوم */
+        .stars-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: twinkle 1s infinite alternate;
+        }
+
+        /* تأثير الوميض */
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* ترويسة مع صورة خلفية */
+        header {
+            background-image: url('your-header-image.jpg'); /* استبدل بهذا مسار الصورة المطلوبة */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 5% 2%;
+            text-align: center;
+            border-radius: 10px;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* شكل دائري علوي */
+        header::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            width: 20%;
+            height: 20%;
+            background-color: #FF8C00;
+            top: -10%;
+            left: -10%;
+        }
+
+        /* شكل دائري سفلي */
+        header::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            width: 15%;
+            height: 15%;
+            background-color: #FFD700;
+            bottom: -10%;
+            right: -10%;
+        }
+
+        /* الأقسام مع خلفية */
+        section {
+            padding: 5% 2%;
+            margin: 2%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* شريط التنقل */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(90deg, #FF8C00, #FFD700);
+            border-radius: 10px;
+            margin: 2%;
+            padding: 2%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        /* قائمة التنقل */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        /* تصميم الروابط */
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* تأثير عند التمرير على الروابط */
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* تصميم قسم الفيديو */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 300px; /* يمكن ضبط الارتفاع حسب الحاجة */
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* تذييل */
+        footer {
+            background-color: #333;
+            color: #f5f5f5;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        /* تحسين النصوص */
+        h1, h2 {
+            color: #FF8C00;
+        }
+
+        /* استعلامات الوسائط للتعديل عند أحجام الشاشات */
+        @media (max-width: 768px) {
+            header {
+                padding: 10% 5%;
+            }
+            
+            nav ul li a {
+                padding: 8px 12px;
+            }
+
+            video {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-container"></div>
+    <header>
+        <h1>مرحبًا بكم في مجتمعنا</h1>
+        <p>نحن هنا لدعم بعضنا البعض وتحقيق أهداف مشتركة.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">عن المجتمع</a></li>
+            <li><a href="#support">الدعم الفني</a></li>
+            <li><a href="#designs">قسم التصاميم</a></li>
+            <li><a href="https://discord.gg/5xJ5rVdy5d">قسم الديسكورد</a></li>
+            <li><a href="#developers">قسم المطورين</a></li>
+            <li><a href="#contact">الاتصال</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" style="background-image: url('your-section-image-1.jpg');">
+        <h2>قسم 1</h2>
+        <p>هذا هو محتوى القسم الأول.</p>
+    </section>
+    <section id="about" style="background-image: url('your-section-image-2.jpg');">
+        <h2>قسم 2</h2>
+        <p>هذا هو محتوى القسم الثاني.</p>
+    </section>
+    <section id="support" style="background-image: url('your-support-section-image.jpg');">
+        <h2>الدعم الفني</h2>
+        <p>نحن هنا للمساعدة في أي مشكلة تواجهها.</p>
+    </section>
+    <section id="designs" style="background-image: url('your-design-section-image.jpg');">
+        <h2>قسم التصاميم</h2>
+        <p>استعرض تصاميمنا وشارك أفكارك.</p>
+    </section>
+    <section id="discord" style="background-image: url('your-discord-section-image.jpg');">
+        <h2>قسم الديسكورد</h2>
+        <p>انضم إلى مجتمعنا على ديسكورد.</p>
+    </section>
+    <section id="developers" style="background-image: url('your-developers-section-image.jpg');">
+        <h2>قسم المطورين</h2>
+        <p>تعاون مع المطورين لتطوير مشاريع جديدة.</p>
+    </section>
+    <footer id="contact">
+        <p>
+https://discord.gg/5xJ5rVdy5d
+© 2024 مجتمعنا. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        const starsContainer = document.querySelector('.stars-container');
+
+        //  عدد من النجوم
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = Math.random() * 100 + 'vw'; // موقع عشوائي على العرض
+            star.style.top = Math.random() * 100 + 'vh'; // موقع عشوائي على الارتفاع
+            starsContainer.appendChild(star);
+        }
+
+        // تفاعل النجوم مع حركة الماوس
+        document.addEventListener('mousemove', (e) => {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                const starX = parseFloat(star.style.left) / window.innerWidth;
+                const starY = parseFloat(star.style.top) / window.innerHeight;
+
+                const offsetX = (e.clientX / window.innerWidth) - starX;
+                const offsetY = (e.clientY / window.innerHeight) - starY;
+
+                star.style.transform = `translate(${offsetX * 10}px, ${offsetY * 10}px)`; // تحريك النجوم
+            });
+        });
+    </script>
+</body>
+</html>
